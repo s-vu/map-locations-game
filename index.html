@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Map</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<header>
+    <h1>Map Locations Game</h2>
+</header>
+
+<body>
+    <h2 id="quiz_title">Can you name the top 50 colleges/universities?</h2>
+
+    <div id="map"></div>
+    <div id="textbox">
+        <input id="input" name="input"
+        onchange
+        onpropertychange
+        onkeyuponpaste oninput="test()">
+
+    </div>
+    <div id="desc">
+        <p id="desc_text">Schools determined by US News & World Report's 2024 ranking. There are 52 schools due to ties.</p>
+    </div>
+    <div class="container">
+        <div id="listbox" class="gridbutton">
+            <div id="scroll">
+                <ul id="listtext">
+                </ul>
+            </div>
+        </div>
+        <div id="scorebox" class="gridbutton">
+            <div class="middle">
+                <h3>Score</h3>
+                <p id="score"></p>
+            </div>
+        </div>
+        <div id="homebutton" class="gridbutton">
+            <h3>Home</h3>
+        </div>
+    </div>
+    <script src="colleges.js"></script>
+    <script src="sportsvenues.js"></script>
+    <script src="map.js"></script>
+    
+    
+</body>
+</html>
