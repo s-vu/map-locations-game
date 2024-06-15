@@ -156,7 +156,7 @@ colleges = new Map([
 
 ]);
 
-schoolcoordinates = new Map([
+collegesCoordinates = new Map([
     ['Massachusetts Institute of Technology', [42.359120, -71.091651]],
     ['Stanford University', [37.4277, -122.1701]],
     ['Princeton University', [40.3431, -74.6551]],
@@ -212,8 +212,8 @@ schoolcoordinates = new Map([
 
 ]);
 
-quiz_title = "Can you name the top 50 colleges/universities?"
-desc_text = 'Schools determined by US News & World Report\'s 2024 ranking. There are 52 schools due to ties.'
+collegeTitle = "Can you name the top 50 colleges/universities?"
+collegeDesc = 'Schools determined by US News & World Report\'s 2024 ranking. There are 52 schools due to ties.'
 
 function collegeMask(current) {
     let val = current;

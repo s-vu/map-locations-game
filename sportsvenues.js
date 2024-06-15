@@ -1,4 +1,4 @@
-const nflTitle = "Can you name the stadium of each NFL team?"
+const nflTitle = "Can you name each NFL stadium?"
 const nflDesc = "There are 30 stadiums among the 32 teams. Names are accurate as of 2024."
 const nflStadiums = new Map([
     ['lambeaufield', 'Green Bay Packers: Lambeau Field'],

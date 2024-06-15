@@ -52,6 +52,29 @@ h2 {
     color: #393E41;
 }
 
+h3 {
+    text-align:center;
+    font-family: 'Comfortaa', sans-serif;
+    font-size:20;
+    color: #393E41;
+}
+
+
+#titles {
+    width:80%;
+    margin:auto;
+}
+#titles h2 {
+    font-size:40px;
+    margin-bottom: 15px;
+}
+#titles h3 {
+    width:55%;
+    margin:auto;
+    margin-bottom:40px;
+    font-size:25px;
+}
+
 #desc {
     width:800px;
     display:block;
@@ -67,7 +90,7 @@ h2 {
     width:800px;
     height:500px;
     grid-template-columns: 350px auto 350px;
-    grid-template-rows: 150px 100px 150px;
+    grid-template-rows: 150px 100px 100px;
     margin:auto;
     display: grid;
     grid-gap:10px;
@@ -119,7 +142,7 @@ h2 {
     font-size:36px;
     margin-top:10px;
 }
-#homebutton {
+#switchGame {
     grid-column-start: 3;
     grid-column-end: 4;
     grid-row-start: 2;
@@ -134,8 +157,24 @@ h2 {
 .gridbutton {
     border-radius:5px;
 }
-#homebutton h3 {
+#switchGame h3 {
     margin-top: 8.1%;
+}
+
+#giveup {
+    grid-column-start:3;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    background-color: #BB4430;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 36px;
+    text-align:center;
+}
+
+#giveup h3 {
+    margin-top: 8.1%;
+    color: #EAEBED;
 }
 
 .middle {
