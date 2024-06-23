@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Red+Hat+Display:wght@400&display=swap');
+/* Other colors: #00A878 Jade, #CC2936  or #BB4430 Persian Red, #C42021 Fire Engine Red, #DA2C38 Poppy Red*/
+body {
+    background-color: #EAEBED;
+    margin: 0;
+    padding:0;
+}
+header {
+    background-color: #3A86FF;
+    width: 100%;
+    margin: 0;
+    padding:0;
+}
+h1 {
+    padding: 20px;
+    padding-left: 30px;
+    margin: 0;
+    color: #EAEBED;
+    font-family: 'Comfortaa', sans-serif;
+    font-size:42px;
+    font-weight:bold;
+
+}
+h2 {
+    text-align:center;
+    font-family: 'Comfortaa', sans-serif;
+    font-size:32px;
+    color: #393E41;
+}
+
+h3 {
+    text-align:center;
+    font-family: 'Comfortaa', sans-serif;
+    font-size:20;
+    color: #393E41;
+}
+
+
+#titles {
+    width:80%;
+    margin:auto;
+}
+#titles h2 {
+    font-size:40px;
+    margin-bottom: 15px;
+}
+#titles h3 {
+    width:55%;
+    margin:auto;
+    margin-bottom:40px;
+    font-size:25px;
+}
+
+#desc {
+    width:800px;
+    display:block;
+    margin:auto;
+}
+#desc p {
+    font-family: 'Red Hat Display', sans-serif;
+    color: #393E41;
+    font-size:18px;
+}
+
+.container {
+    width:800px;
+    height:500px;
+    grid-template-columns: 350px auto 350px;
+    grid-template-rows: 150px 100px 100px;
+    margin:auto;
+    display: grid;
+    grid-gap:10px;
+}
+
+#scroll {
+    overflow-y:scroll;
+    height:100%;
+}
+
+::-webkit-scrollbar {
+    background-color:#EAEBED;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #393E41;
+    border-radius:5px;
+}
+
+#switchGame {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    background-color: #549F93;
+    color: #EAEBED;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 36px;
+    text-align:center;
+
+}
+.gridbutton {
+    border-radius:5px;
+}
+
+#game1 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    background-color: #549F93;
+    color: #EAEBED;
+    font-family: 'Comfortaa', sans-serif;
+    text-align:center;
+    font-size:30px;
+}
+#game1, #game2 h3 {
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#game2 {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    background-color: #549F93;
+    color: #EAEBED;
+    font-family: 'Comfortaa', sans-serif;
+    text-align:center;
+    font-size:30px;
+}
+
+.middle {
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    -ms-transform: translate(-50%);
+    transform: translate(-50%);
+}
+
+#map { height: 180px; }
+.leaflet-container {
+  height:100vh;
+  height: 600px; 
+    width: 800px;
+    margin:auto;
+    border-radius:5px;
+    border: 1px solid #393E41;
+}
