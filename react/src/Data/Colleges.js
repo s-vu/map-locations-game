@@ -1,3 +1,6 @@
+export const collegeTitle = "Can you name the top 50 colleges/universities?"
+export const collegeDesc = 'Schools determined by US News & World Report\'s 2024 ranking. There are 52 schools due to ties.'
+
 export const colleges = new Map([
     ['mit', 'Massachusetts Institute of Technology'], 
     ['massachusettsinstituteoftechnology', 'Massachusetts Institute of Technology'],
@@ -211,9 +214,6 @@ export const collegesCoordinates = new Map([
     ['Wake Forest University', [36.1355, -80.2793]]
 
 ]);
-
-export const collegeTitle = "Can you name the top 50 colleges/universities?"
-export const collegeDesc = 'Schools determined by US News & World Report\'s 2024 ranking. There are 52 schools due to ties.'
 
 export function collegeMask(current) {
     let val = current;
