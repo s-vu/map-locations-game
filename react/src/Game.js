@@ -12,7 +12,7 @@ import {
 import React, { useState } from "react";
 import { colleges, collegesCoordinates, collegeTitle, collegeDesc, collegeMask } from './Data/Colleges.js';
 import { nflStadiums, nflStadiumCoordinates, nflTitle, nflDesc } from './Data/SportsVenues.js'
-
+import { nationalParks, parksCoordinates, parksTitle, parksDesc } from './Data/NationalParks.js';
   
 
 
@@ -53,7 +53,9 @@ function Game() {
     // answers: all possible answers, coordinates Map([Answer, [Lon, Lat]])
     var answers;
     var coordinates;
-
+    var maxZoom = 11;
+    var minZoom = 4;
+    var maxBounds = [[10, -65.0],[78, -172]];
     // Top 50 Colleges/Unis
     if (id === 1) {
         title = collegeTitle;
@@ -70,6 +72,17 @@ function Game() {
         coordinates = nflStadiumCoordinates;
     }
 
+    //National Parks
+    else if (id === 3) {
+        title = parksTitle;
+        gameDesc = parksDesc;
+        answers = nationalParks;
+        coordinates = parksCoordinates;
+        maxZoom=7;
+        minZoom=4;
+        maxBounds = [[-15, -60.0],[78, -172]];
+    }
+
     /**
      * Game logic for answers being typed into input text box
      * @param e the input that user typed into text box
@@ -84,7 +97,7 @@ function Game() {
         setValue(e.target.value);
         let val = e.target.value;
         val = val.toLowerCase().replaceAll(' ', '');
-        val = val.replace(/[\s,&-]/g, '');
+        val = val.replace(/[\s,&-.]/g, '');
         val = mask(val);
 
         if (answers.has(val)) {
@@ -134,10 +147,9 @@ function Game() {
     <MapContainer 
           center={[39.5, -98.3]}
           zoom={4}
-          maxZoom={11}
-          minZoom={4}
-          maxBounds={[[10, -65.0],
-            [78, -172]]}
+          maxZoom={maxZoom}
+          minZoom={minZoom}
+          maxBounds={maxBounds}
       >
        
       <TileLayer

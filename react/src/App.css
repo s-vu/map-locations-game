@@ -62,16 +62,24 @@ h3 {
     font-size:18px;
 }
 
-.container {
-    width:800px;
-    height:500px;
-    grid-template-columns: 350px auto 350px;
-    grid-template-rows: 150px 100px 100px;
+.gameoptionlist {
+    width:60%;
     margin:auto;
     display: grid;
-    grid-gap:10px;
 }
+.gameoption {
+    color: #EAEBED;
+    font-family: 'Comfortaa', sans-serif;
+    text-align:center;
+    font-size:30px;    
+    width: 100%;
+    background-color: #549F93;
+    border: none;
+    padding:15px 0px;
+    margin: 5px 0px;
+    border-radius: 10px;
 
+}
 #scroll {
     overflow-y:scroll;
     height:100%;
@@ -96,9 +104,6 @@ h3 {
     font-size: 36px;
     text-align:center;
 
-}
-.gridbutton {
-    border-radius:5px;
 }
 
 #game1 {

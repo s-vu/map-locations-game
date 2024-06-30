@@ -1,13 +1,16 @@
 import { useNavigate } from 'react-router-dom';
 import React from 'react';
+import { LineUtil } from 'leaflet';
 
 function Home() {
     const navigate = useNavigate();
 
     const handleNavigate = (gameId) => {
-      navigate(`/game/${gameId}`);
+      navigate(`/game/${gameId+1}`);
     };
     
+    const games = ["Top 50 Colleges and Universities", "All 30 NFL Stadiums", "All 63 US National Parks"];
+
     return (
 
 <body>
@@ -22,13 +25,8 @@ function Home() {
 
 
 
-    <div class="container">
-        <div id="game1" onClick={() => handleNavigate(1)} class="gridbutton">
-        <h3>Top 50 Colleges & Universitie</h3>
-        </div>
-        <div id="game2" onClick={() => handleNavigate(2)} class="gridbutton">
-            <h3>All 30 NFL Stadiums</h3>
-            </div>
+    <div class="gameoptionlist">
+        {games.map((txt, i) => <button onClick={() => handleNavigate(i)} class="gameoption">{txt}</button>)}
     </div>  
     
     </body>
