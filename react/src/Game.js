@@ -9,11 +9,18 @@ import {
   Popup,
   Circle
 } from 'react-leaflet';
-import React, { useState } from "react";
-import { colleges, collegesCoordinates, collegeTitle, collegeDesc, collegeMask } from './Data/Colleges.js';
+import React, { useState, useEffect } from "react";
+import { colleges, collegesCoordinates, collegeTitle, collegeDesc } from './Data/Colleges.js';
 import { nflStadiums, nflStadiumCoordinates, nflTitle, nflDesc } from './Data/SportsVenues.js'
 import { nationalParks, parksCoordinates, parksTitle, parksDesc } from './Data/NationalParks.js';
   
+function collegeMask(current) {
+    let val = current;
+    if (colleges.has(val + 'university') && val !== 'boston') val = val + 'university';
+    else if (colleges.has(val + 'college') && val !== 'boston') val = val + 'college';
+    else if (colleges.has('universityof' + val)) val = 'universityof' + val;
+    return val;
+}
 
 
 //-------------Website text setup-------------
@@ -27,6 +34,7 @@ function Game() {
     // Value represents text in text input box
     var { id } = useParams();
     id = parseInt(id);
+
     const [value, setValue] = useState("");
    
     // Represents all answers that have been found so far. Each item in markers is the name of answer,
@@ -44,44 +52,51 @@ function Game() {
     }
 
     
-    var title;
-    var gameDesc;
+    const [ title, setTitle] = useState('');
+    const [ gameDesc, setGameDesc ] = useState('');
+
     function mask(x) {
         return x;
     }
 
-    // answers: all possible answers, coordinates Map([Answer, [Lon, Lat]])
-    var answers;
-    var coordinates;
-    var maxZoom = 11;
-    var minZoom = 4;
-    var maxBounds = [[10, -65.0],[78, -172]];
-    // Top 50 Colleges/Unis
-    if (id === 1) {
-        title = collegeTitle;
-        gameDesc = collegeDesc;
-        mask = collegeMask;
-        answers = colleges;
-        coordinates = collegesCoordinates;
-    }
-    // All 30 NFL Stadiums
-    else if (id === 2) {
-        title = nflTitle;
-        gameDesc = nflDesc;
-        answers = nflStadiums;
-        coordinates = nflStadiumCoordinates;
-    }
+    const url = `http://localhost:8000/game?id=${id}`;
+    
+    const [ answers, setAnswers] = useState([]);
+    const [coordinates, setCoordinates] = useState(new Map());
+    const [maxZoom, setMaxZoom] = useState(11);
+    const [minZoom, setMinZoom] = useState(4);
+    const [maxBounds, setMaxBounds] = useState([[10, -65.0],[78, -172]]);
 
-    //National Parks
-    else if (id === 3) {
-        title = parksTitle;
-        gameDesc = parksDesc;
-        answers = nationalParks;
-        coordinates = parksCoordinates;
-        maxZoom=7;
-        minZoom=4;
-        maxBounds = [[-15, -60.0],[78, -172]];
-    }
+    useEffect(()=> {
+        const fetchData = async() => {
+            const result = await fetch(url)
+            result.json().then(json => {
+                let jsonAnswers = new Map();
+                for (const key in json.answers) {
+                    jsonAnswers.set(`${key}`, json.answers[key]);
+                }
+                setAnswers(jsonAnswers);
+
+                let jsonCoordinates = new Map();
+                for (const key in json.coordinates) {
+                    jsonCoordinates.set(`${key}`, json.coordinates[key]);
+                }
+                setCoordinates(jsonCoordinates);
+
+                setMaxZoom(json.maxZoom);
+
+                setMinZoom(json.minZoom);
+
+                setMaxBounds(json.maxBounds);
+
+                setTitle(json.title);
+
+                setGameDesc(json.gameDesc);
+                
+            })
+        }
+        fetchData();
+    }, []);
 
     /**
      * Game logic for answers being typed into input text box
