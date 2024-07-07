@@ -1,6 +1,7 @@
-# map-locations-game
-Trivia game on a web browser inspired by Sporcle. Uses a map to display answers that user has listed already.
+# Map Locations Game
 
-Has a version created with HTML, CSS, and vanilla JavaScript, which is displayed on the Github pages for this repository.
+This is a game I made inspired by Sporcle & cityquiz.io. 
 
-Currently recreating the game with React & Express for back-end.
+I initially made a version of the game build with HTML, CSS, and plain JavaScript. You can play this version at https://s-vu.github.io/map-locations-game/. 
+
+I am currently remaking a full-stack version of the game using Node.js, React, and Express. This version works and looks very similar to the plain version with some slight improvements.
