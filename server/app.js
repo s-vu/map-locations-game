@@ -1,14 +1,11 @@
 const express = require('express');
 const app = express();
 const port = 8000;
+const cors = require("cors");
+app.use(cors());
 const colleges = require('./Data/Colleges');
 const stadiums = require('./Data/SportsVenues');
 const parks = require('./Data/NationalParks')
-
-app.get('/', (req, res) => {
-    res.send(colleges.collegeDesc);
-    
-  });
 
 app.get('/game', (request, response) => {
     const id = parseInt(request.query['id']);
